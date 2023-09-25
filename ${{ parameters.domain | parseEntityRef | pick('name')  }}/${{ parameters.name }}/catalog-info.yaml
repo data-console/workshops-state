@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: "test"
+  description: "test"
+spec:
+  owner: group:default/xwing-libra
+  domain: test
