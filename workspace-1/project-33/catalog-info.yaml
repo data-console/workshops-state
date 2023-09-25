@@ -1,0 +1,51 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: project-33
+  description: 
+spec:
+  type: cloud-project
+  lifecycle: production
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependsOn:
+    - resource:default/project-33-prod
+    - resource:default/project-33-test
+    - resource:default/project-33-dev
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: project-33-prod
+  description: " prod environment"
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependencyOf:
+    - component:default/project-33
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: project-33-test
+  description: " test environment"
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependencyOf:
+    - component:default/project-33
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: project-33-dev
+  description: " dev environment"
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependencyOf:
+    - component:default/project-33
