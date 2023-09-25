@@ -1,0 +1,14 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: project-1
+  description: some description
+spec:
+  type: cloud-project
+  lifecycle: production
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependsOn:
+
+
