@@ -1,0 +1,16 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: workflow-solution
+  description: "An example workflow"
+  labels:
+    allegro.com/sc-id: "123"
+spec:
+  type: workflow
+  lifecycle: production
+  owner: group:default/xwing-libra
+  system: system:default/solutions
+  scheduler: component:default/scheduler-solutions
+  dependsOn:
+    - component:default/scheduler-solutions
