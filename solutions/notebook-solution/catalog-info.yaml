@@ -1,0 +1,11 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: notebook-solution
+spec:
+  type: gcp-vertex-ai-instance
+  owner: user:alleml
+  system: system:default/solutions
+  dependsOn:
+    - resource:default/project-solutions-dev
