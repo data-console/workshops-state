@@ -1,0 +1,16 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: notebook-1
+  description: 
+  labels:
+    allegro.com/sc-id: ""
+spec:
+  type: workflow
+  lifecycle: production
+  owner: user:alleml
+  system: system:default/workspace-1
+  scheduler: 
+  dependsOn:
+    - 
