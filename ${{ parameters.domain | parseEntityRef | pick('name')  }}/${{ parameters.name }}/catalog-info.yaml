@@ -1,0 +1,60 @@
+values: {"name":"project-1","description":"asdads","owner":"group:default/xwing-libra","workspace":"system:default/workspace-1","environments":["prod","test","dev"]}
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: project-1
+  description: asdads
+spec:
+  type: cloud-project
+  lifecycle: production
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependsOn:
+
+    - resource:default/project-1-prod
+
+    - resource:default/project-1-test
+
+    - resource:default/project-1-dev
+
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: project-1-prod
+  description: asdads - prod environment
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependencyOf:
+    - component:default/project-1
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: project-1-test
+  description: asdads - test environment
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependencyOf:
+    - component:default/project-1
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: project-1-dev
+  description: asdads - dev environment
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependencyOf:
+    - component:default/project-1
+
