@@ -1,0 +1,64 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: project-solutions
+  description: "An example solution project"
+  annotations:
+    allegro.com/resource-type: "gcp-project"
+  labels:
+    allegro.com/sc-id: "123"
+spec:
+  type: cloud-project
+  lifecycle: production
+  owner: group:default/xwing-libra
+  system: system:default/solutions
+  dependsOn:
+    - resource:default/project-solutions-prod
+    - resource:default/project-solutions-test
+    - resource:default/project-solutions-dev
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: project-solutions-prod
+  description: "An example solution project prod environment"
+  labels:
+    allegro.com/sc-id: "123"
+    allegro.com/environment: ""
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/solutions
+  dependencyOf:
+    - component:default/project-solutions
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: project-solutions-test
+  description: "An example solution project test environment"
+  labels:
+    allegro.com/sc-id: "123"
+    allegro.com/environment: ""
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/solutions
+  dependencyOf:
+    - component:default/project-solutions
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: project-solutions-dev
+  description: "An example solution project dev environment"
+  labels:
+    allegro.com/sc-id: "123"
+    allegro.com/environment: ""
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/solutions
+  dependencyOf:
+    - component:default/project-solutions
