@@ -1,0 +1,71 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: scheduler-solutions
+  description: "An example of scheduler"
+  annotations:
+    allegro.com/resource-type: "gcp-cloud-composer"
+  labels:
+    allegro.com/sc-id: "123"
+spec:
+  type: scheduler
+  lifecycle: production
+  owner: group:default/xwing-libra
+  system: system:default/solutions
+  dependsOn:
+    - component:default/project-solutions
+    - resource:default/scheduler-solutions-prod
+    - resource:default/scheduler-solutions-test
+    - resource:default/scheduler-solutions-dev
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: scheduler-solutions-prod
+  description: "An example of scheduler prod environment"
+  labels:
+    allegro.com/sc-id: "123"
+    allegro.com/environment: "prod"
+spec:
+  type: gcp-cloud-composer
+  owner: group:default/xwing-libra
+  system: system:default/solutions
+  dependsOn:
+    - resource:project-solutions-prod
+  dependencyOf:
+    - component:default/scheduler-solutions
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: scheduler-solutions-test
+  description: "An example of scheduler test environment"
+  labels:
+    allegro.com/sc-id: "123"
+    allegro.com/environment: "test"
+spec:
+  type: gcp-cloud-composer
+  owner: group:default/xwing-libra
+  system: system:default/solutions
+  dependsOn:
+    - resource:project-solutions-test
+  dependencyOf:
+    - component:default/scheduler-solutions
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: scheduler-solutions-dev
+  description: "An example of scheduler dev environment"
+  labels:
+    allegro.com/sc-id: "123"
+    allegro.com/environment: "dev"
+spec:
+  type: gcp-cloud-composer
+  owner: group:default/xwing-libra
+  system: system:default/solutions
+  dependsOn:
+    - resource:project-solutions-dev
+  dependencyOf:
+    - component:default/scheduler-solutions }}
