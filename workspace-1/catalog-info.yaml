@@ -1,8 +1,12 @@
 apiVersion: backstage.io/v1alpha1
-kind: System
+kind: Resource
 metadata:
-  name: "workspace-1"
-  description: "Single entry-point for all BigData related tools."
+  name: workflow-1-scheduler-1-dev
+  description: "component:default/workflow-1 deployment to resource:default/scheduler-1-dev"
 spec:
+  type: workflow-deployment
   owner: group:default/xwing-libra
-  domain: domain:default/big-data
+  system: system:default/workspace-1
+  dependsOn:
+    - component:default/workflow-1
+    - resource:default/scheduler-1-dev
