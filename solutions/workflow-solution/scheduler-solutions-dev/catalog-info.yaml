@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: workflow-solution-scheduler-solutions-dev
+  description: "component:default/workflow-solution deployment to resource:default/scheduler-solutions-dev"
+spec:
+  type: workflow-deployment
+  owner: group:default/xwing-libra
+  system: system:default/solutions
+  dependsOn:
+    - component:default/workflow-solution
+    - resource:default/scheduler-solutions-dev
