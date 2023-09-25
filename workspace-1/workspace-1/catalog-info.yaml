@@ -1,0 +1,51 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: workspace-1
+  description: some description
+spec:
+  type: cloud-project
+  lifecycle: production
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependsOn:
+    - resource:default/workspace-1-prod
+    - resource:default/workspace-1-test
+    - resource:default/workspace-1-dev
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: workspace-1-prod
+  description: some description - prod environment
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependencyOf:
+    - component:default/workspace-1
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: workspace-1-test
+  description: some description - test environment
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependencyOf:
+    - component:default/workspace-1
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: workspace-1-dev
+  description: some description - dev environment
+spec:
+  type: gcp-project
+  owner: group:default/xwing-libra
+  system: system:default/workspace-1
+  dependencyOf:
+    - component:default/workspace-1
